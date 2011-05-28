@@ -1,0 +1,27 @@
+a unite.vm plugin for Symfony2(PHP).
+
+inspired by basyura's unite-rails and oppara's unite-cake
+https://github.com/basyura/unite-rails
+https://github.com/oppara/vim-unite-cake
+
+unit /src
+  :Unite sf2/
+unite /app
+  :Unite sf2/app
+unite /app
+  :Unite sf2/app
+unite /app/config
+  :Unite sf2/app/config
+unite /app/views
+  :Unite sf2/app/views
+unite /app/web
+  :Unite sf2/app/web
+unite /app/src
+  :Unite sf2/bundles
+
+
+If there are "Foo" bunde and "Bar" bundle.
+unite /app/src/Foo
+  :Unite sf2/Foo
+unite /app/src/Bar
+  :Unite sf2/Bar
