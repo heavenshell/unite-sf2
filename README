@@ -25,3 +25,29 @@ unite /app/src/Foo
   :Unite sf2/Foo
 unite /app/src/Bar
   :Unite sf2/Bar
+
+
+If you want to use Foo/Controller etc, add g:unite_source_sf2_bundles to your .vimrc
+    let g:unite_source_sf2_bundles = {
+      \ 'FooBundle': 'FooBundle',
+      \ 'BarBundle': 'BarBundle',
+      \ 'AcmeDemoBundle': 'Acme/DemoBundle'.
+    \ }
+
+Now you can use below commands.
+unite /src/AcmeDemoBundle/Command
+  :Unite sf2/AcmeDemoBundle/Command
+unite /src/Acme/Demobundle/Controller
+  :Unite sf2/AcmeDemoBundle/Controller
+unit /src/AcmeDemoBundle/DataFixtures
+  :Unite sf2/AcmeDemoBundle/DataFixtures
+unit /src/AcmeDemoBundle/Entity
+  :Unite sf2/AcmeDemoBundle/Entity,
+unit /src/AcmeDemoBundle/Features
+  :Unite sf2/AcmeDemoBundle/Features
+unite /src/AcmeDemoBundle/Resources
+  :Unite sf2/AcmeDemoBundle/Resources
+unite /src/AcmeDemoBundle/Serializer
+  :Unite sf2/AcmeDemoBundle/Serializer
+unite /src/AcmeDemoBundle/Tests
+  :Unite sf2/AcmeDemoBundle/Tests
