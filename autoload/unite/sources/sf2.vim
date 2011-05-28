@@ -26,19 +26,33 @@ let s:places = [
 let s:filelist = glob(s:sf2_root() . '/src/*')
 let s:splitted = split(s:filelist, "\n")
 
-" TODO: Foo/Bundles/Controller..
-let s:bundles = [
+let s:commands = [
       \ 'Command', 'Controller', 'DataFixtures', 'DataFixtures', 'Entity',
       \ 'Features', 'Resources', 'Serializer', 'Tests'
       \ ]
-for s:file in s:splitted
-  let s:bundle = fnamemodify(s:file, ':t:r')
-  call add(s:places, {'name' : s:bundle, 'path' : '/src/' . s:bundle})
-  " TODO: Foo/Bundles/Controller..
-"  for s:command in s:bundles
-"    call add(s:places, {'name' : s:bundle . '/' . s:command, 'path' : '/src/' . s:bundle . '/' . s:command})
-"  endfor
-endfor
+
+if !exists('g:unite_source_sf2_bundles')
+  let g:unite_source_sf2_bundles = {}
+endif
+
+let s:bundles = keys(g:unite_source_sf2_bundles)
+if len(s:bundles) > 0
+  for s:bundle in s:bundles
+    let s:path = g:unite_source_sf2_bundles[s:bundle]
+    call add(s:places, {'name' : s:bundle, 'path' : '/src/' . s:bundle})
+    for s:command in s:commands
+      call add(s:places,
+            \ {'name' : s:bundle . '/' . s:command, 'path' : '/src/' . s:path . '/' . s:command}
+            \ )
+    endfor
+  endfor
+else
+  " If bundles not exists, just show bundle name.
+  for s:file in s:splitted
+    let s:bundle = fnamemodify(s:file, ':t:r')
+    call add(s:places, {'name' : s:bundle, 'path' : '/src/' . s:bundle})
+  endfor
+endif
 
 let s:source = {}
 
