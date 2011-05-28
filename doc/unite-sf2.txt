@@ -1,4 +1,4 @@
-*unite-sf2*   unite plugin for Symfony2
+*unite-sf2*   unite.vim plugin for Symfony2
 
 Author : Shinya Ohyanagi <sohyanagi@gmail.com>
 License: MIT license  {{{
@@ -20,5 +20,3 @@ License: MIT license  {{{
     TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
     SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 }}}
-
-
